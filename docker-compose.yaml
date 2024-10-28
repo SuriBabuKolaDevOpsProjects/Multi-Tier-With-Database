@@ -1,0 +1,37 @@
+---
+version: '3.8'
+
+services:
+  bankdb:
+    image: mysql:8
+    container_name: bankdb
+    environment:
+      - MYSQL_ROOT_PASSWORD=Suresh@1997
+      - MYSQL_DATABASE=bankappdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - bankdb-data:/var/lib/mysql
+    networks:
+      - bankapp-network
+
+  bankapp:
+    image: nagasuribabukola/bankapp:latest
+    container_name: bankapp
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://bankdb:3306/bankappdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=Suresh@1997
+    ports:
+      - "80:8080"
+    networks:
+      - bankapp-network
+    depends_on:
+      - bankdb
+
+networks:
+  bankapp-network:
+    driver: bridge
+
+volumes:
+  bankdb-data:
