@@ -33,12 +33,12 @@ docker container run -d --name nexus3 -p 8081:8081 sonatype/nexus3:latest
       * Password: Password is available in `sonatype-work/nexus3/admin.password`
       * Provide New Password and Enable/Disable anonymous access based on requirement.
 * Create Repositories
-      * Go to `Settings --> Repositories` and click `Create repository`
-      * Select `maven2 (hosted)` and Give `Name`
-      * Select `Version policy` (Create Two Repositories and Select 1. Release & 2. Snapshot)
+    * Go to `Settings --> Repositories` and click `Create repository`
+    * Select `maven2 (hosted)` and Give `Name`
+    * Select `Version policy` (Create Two Repositories and Select 1. Release & 2. Snapshot)
 * **Note:** In `pom.xml` file,
-      * When Version is `<version>3.5.0-SNAPSHOT</version>`, it Stores in Snapshots Repo
-      * When Version is `<version>3.5.0</version>`, it Stores in Releases Repo
+    * When Version is `<version>3.5.0-SNAPSHOT</version>`, it Stores in Snapshots Repo
+    * When Version is `<version>3.5.0</version>`, it Stores in Releases Repo
 
 ## Jenkins
 * Connect to Jenkins Instance.
